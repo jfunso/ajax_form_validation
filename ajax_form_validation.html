@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+       <title>Form Validation</title>
+          <style type="text/css">
+
+    td {
+        width: 50%;
+	padding: 1px;
+        font-size: 20px;
+	
+    }
+
+   input {
+         width:250px;
+          height:30px;
+          margin-top:10px;
+          border-radius:3px;
+          padding:2px;
+         box-shadow:0 1px 1px 0 ;
+         margin:10px;
+  
+   }
+
+    input[type=submit]{
+            background-color:#0B87AA;
+                     border:1px solid #fff;
+                font-family:'Fauna One',serif;
+                font-weight:700;
+                  font-size:18px;
+                      color:#fff;
+                      width:30%;
+                margin-left:105px;
+                 margin-top:30px
+}
+
+legend{
+color:green;
+}
+      </style>
+   <script>
+
+var Otherwise = true;
+
+function validateFName() 
+{
+   
+   if(document.getElementById("fname").value.length === 0)
+   {
+       document.getElementById("fname").style.borderColor = "red";
+       document.getElementById("fnameMsg").innerHTML = "Please enter your first name";
+	document.getElementById("fnameMsg").style.color = "red";
+	fname.focus();
+        return false;
+   }
+   else
+   {
+        document.getElementById("fname").style.borderColor = "green";
+       document.getElementById("fnameMsg").innerHTML = "Thank you";
+       document.getElementById("fnameMsg").style.color = "green";
+	fname.focus();
+	   return true;
+   }
+}  
+
+function validateLName() 
+{   
+   if(document.getElementById("lname").value.length === 0)
+   {
+       document.getElementById("lname").style.borderColor = "red";
+       document.getElementById("lnameMsg").innerHTML = "Please enter your last name";
+       document.getElementById("lnameMsg").style.color = "red";
+	lname.focus();
+	   return false;
+   }
+   else
+   {
+       document.getElementById("lname").style.borderColor = "green";
+       document.getElementById("lnameMsg").innerHTML = "Thank you";
+       document.getElementById("lnameMsg").style.color = "green";
+	lname.focus();
+	   return true;
+   }
+} 
+
+function validateEMail() 
+{   
+   if(document.getElementById("email").value.indexOf("@", 0) < 0)
+   {
+       document.getElementById("email").style.borderColor = "red";
+       document.getElementById("emailMsg").innerHTML = "Email must contain @ symbol";
+       document.getElementById("emailMsg").style.color = "red";
+	email.focus();
+	   return false;
+   }
+   else
+   {
+       document.getElementById("email").style.borderColor = "green";
+       document.getElementById("emailMsg").innerHTML = "Thank you";
+       document.getElementById("emailMsg").style.color = "green";
+	email.focus();
+	   return true;
+   }
+} 
+
+function validatePhone() 
+{
+   if(document.getElementById("phone").value.length === 0)
+   {
+       document.getElementById("phone").style.borderColor = "red";
+       document.getElementById("phoneMsg").innerHTML = "Please enter your phone number";
+       document.getElementById("phoneMsg").style.color = "red";
+	phone.focus();
+       return false;
+   }
+   else
+   {
+       document.getElementById("phone").style.borderColor = "green";
+       document.getElementById("phoneMsg").innerHTML = "Thank you";
+       document.getElementById("phoneMsg").style.color = "green";
+	phone.focus();
+	   return true;
+   }
+}
+
+
+function validateForm()
+{  
+   var fnameConfirm = validateFName();
+   var lnameConfirm = validateLName();
+   var emailConfirm = validateEMail();
+   var phoneConfirm = validatePhone();
+   
+   if(fnameConfirm && lnameConfirm && emailConfirm && phoneConfirm)
+   {
+      return true;
+   }
+   else
+   {
+       return false;
+   }
+}
+     </script>
+    </head>
+   <body>
+<table border="5" width = "70%" align = "center" >
+  <caption><strong><h3>Form Validation with Javascript</h3></strong></caption>
+ <tr>
+  <td>
+   
+<form action = "#" onsubmit = "return validateForm()">
+    <fieldset>
+  <legend><h4>Personal Details </h4></legend> 
+<label for = "fname">First Name:</label>
+<input  type = "text" id = "fname" name = "fname"><label id ="fnameMsg"></label>
+<br>
+
+<label for = "lname">Last Name:</label>
+<input  type = "text" id = "lname" name = "lname"><label id ="lnameMsg"></label>
+<br>
+
+<label for = "email">Email:</label>
+<input  type = "text" id = "email" name = "email"><label id ="emailMsg"></label>
+<br>
+
+<label for = "phone">Phone:</label>
+<input  type = "text" id = "phone" name = "phone"><label id ="phoneMsg"></label>
+<br>
+      <input type = "submit" value="Submit" />
+ </fieldset>
+   </form>
+   </td>
+   </tr>
+  </table>
+
+ </body>
+</html>
